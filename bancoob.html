@@ -1,0 +1,463 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pt-br" dir="ltr" lang="pt-br">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NomeSistemaAqui - Cobrando com boleto.</title>
+    <style type="text/css">
+      <!--
+				.ti {font: 9px Arial, Helvetica, sans-serif}
+			-->
+    </style>
+
+    <style>
+      @media screen,print { /* *** TIPOGRAFIA BASICA *** */ * { font-family:
+      Arial; font-size: 12px; margin: 0; padding: 0; } .notice { color: red;
+      } /* *** LINHAS GERAIS *** */ #container { width: 666px; margin: 0px auto;
+      padding-bottom: 30px; } #instructions { margin: 0; padding: 0 0 20px 0;
+      } #boleto { width: 666px; margin: 0; padding: 0; } /* *** CABECALHO ***
+      */ #instr_header { height: 65px; } #instr_header h1 { font-size:
+      16px; margin: 5px 0px; } #instr_header address { font-style: normal; }
+      #instr_content { } #instr_content h2 { font-size: 10px; font-weight: bold;
+      } #instr_content p { font-size: 10px; margin: 4px 0px; } #instr_content
+      ol { font-size: 10px; margin: 5px 0; } #instr_content ol li { font-size:
+      10px; text-indent: 10px; margin: 2px 0px; list-style-position: inside;
+      } #instr_content ol li p { font-size: 10px; padding-bottom: 4px; } /* ***
+      BOLETO *** */ #boleto .cut { width: 666px; margin: 0px auto; border-bottom:
+      1px black dashed; } #boleto .cut p { margin: 0 0 5px 0; padding: 0px; font-family:
+      'Arial Narrow'; font-size: 9px; color: black; } table.header { width: 666px;
+      height: 38px; margin-top: 20px; margin-bottom: 10px; border-bottom: 2px
+      black solid; } table.header div.field_cod_banco { width: 46px; height:
+      19px; margin-left: 5px; padding-top: 3px; text-align: center; font-size:
+      14px; font-weight: bold; color: black; border-right: 2px solid black; border-left:
+      2px solid black; } table.header td.linha_digitavel { width: 464px; text-align:
+      right; font: bold 15px Arial; color: black } table.line { margin-bottom:
+      3px; padding-bottom: 1px; border-bottom: 1px black solid; } table.line
+      tr.titulos td { height: 13px; font-family: 'Arial Narrow'; font-size: 9px;
+      color: black; border-left: 5px #000000 solid; padding-left: 2px; } table.line
+      tr.campos td { height: 12px; font-size: 10px; color: black; border-left:
+      5px #000000 solid; padding-left: 2px; } table.line td p { font-size: 10px;
+      } table.line tr.campos td.ag_cod_cedente, table.line tr.campos td.nosso_numero,
+      table.line tr.campos td.valor_doc, table.line tr.campos td.vencimento2,
+      table.line tr.campos td.ag_cod_cedente2, table.line tr.campos td.nosso_numero2,
+      table.line tr.campos td.xvalor, table.line tr.campos td.valor_doc2 { text-align:
+      right; } table.line tr.campos td.especie, table.line tr.campos td.qtd,
+      table.line tr.campos td.vencimento, table.line tr.campos td.especie_doc,
+      table.line tr.campos td.aceite, table.line tr.campos td.carteira, table.line
+      tr.campos td.especie2, table.line tr.campos td.qtd2 { text-align: center;
+      } table.line td.last_line { vertical-align: top; height: 25px; } table.line
+      td.last_line table.line { margin-bottom: -5px; border: 0 white none; }
+      td.last_line table.line td.instrucoes { border-left: 0 white none; padding-left:
+      5px; padding-bottom: 0; margin-bottom: 0; height: 20px; vertical-align:
+      top; } table.line td.cedente { width: 298px; } table.line td.valor_cobrado2
+      { padding-bottom: 0; margin-bottom: 0; } table.line td.ag_cod_cedente {
+      width: 126px; } table.line td.especie { width: 35px; } table.line td.qtd
+      { width: 53px; } table.line td.nosso_numero { /* width: 120px; */ width:
+      115px; padding-right: 5px; } table.line td.num_doc { width: 113px; } table.line
+      td.contrato { width: 72px; } table.line td.cpf_cei_cnpj { width: 132px;
+      } table.line td.vencimento { width: 134px; } table.line td.valor_doc {
+      /* width: 180px; */ width: 175px; padding-right: 5px; } table.line td.desconto
+      { width: 113px; } table.line td.outras_deducoes { width: 112px; } table.line
+      td.mora_multa { width: 113px; } table.line td.outros_acrescimos { width:
+      113px; } table.line td.valor_cobrado { /* width: 180px; */ width: 175px;
+      padding-right: 5px; background-color: #ffc ; } table.line td.sacado { width:
+      659px; } table.line td.local_pagto { width: 472px; } table.line td.vencimento2
+      { /* width: 180px; */ width: 175px; padding-right: 5px; background-color:
+      #ffc; } table.line td.cedente2 { width: 472px; } table.line td.ag_cod_cedente2
+      { /* width: 180px; */ width: 175px; padding-right: 5px; } table.line td.data_doc
+      { width: 93px; } table.line td.num_doc2 { width: 173px; } table.line td.especie_doc
+      { width: 72px; } table.line td.aceite { width: 34px; } table.line td.data_process
+      { width: 72px; } table.line td.nosso_numero2 { /* width: 180px; */ width:
+      175px; padding-right: 5px; } table.line td.reservado { width: 93px; background-color:
+      #ffc; } table.line td.carteira { width: 93px; } table.line td.especie2
+      { width: 53px; } table.line td.qtd2 { width: 133px; } table.line td.xvalor
+      { /* width: 72px; */ width: 67px; padding-right: 5px; } table.line td.valor_doc2
+      { /* width: 180px; */ width: 175px; padding-right: 5px; } table.line td.instrucoes
+      { width: 475px; } table.line td.desconto2 { /* width: 180px; */ width:
+      175px; padding-right: 5px; } table.line td.outras_deducoes2 { /* width:
+      180px; */ width: 175px; padding-right: 5px; } table.line td.mora_multa2
+      { /* width: 180px; */ width: 175px; padding-right: 5px; } table.line td.outros_acrescimos2
+      { /* width: 180px; */ width: 175px; padding-right: 5px; } table.line td.valor_cobrado2
+      { /* width: 180px; */ width: 175px; padding-right: 5px; background-color:
+      #ffc ; } table.line td.sacado2 { width: 659px; } table.line td.sacador_avalista
+      { width: 659px; } table.line tr.campos td.sacador_avalista { width: 472px;
+      } table.line td.cod_baixa { color: black; width: 180px; } div.footer {
+      margin-bottom: 30px; } div.footer p { width: 88px; margin: 0; padding:
+      0; padding-left: 525px; font-family: 'Arial Narro'; font-size: 9px; color:
+      black; } div.barcode { width: 666px; margin-bottom: 20px; } } @media print
+      { #instructions { height: 1px; visibility: hidden; overflow: hidden; } }
+    </style>
+  </head>
+
+  <body>
+    <div id="container">
+      <div id="instr_header">
+        <h1>
+          NomeSistemaAqui - Cobrando com boleto. 85.835.216/0001-20
+        </h1>
+
+        <address> Rua João Pedro das Coves, 01 - Sl 106, Centro <br> </address>
+        <address> Campão / SC - CEP: 88123-000</address>
+      </div>
+
+      <div id="">
+        <div id="instr_content">
+          <h2>Instru&ccedil;&otilde;es</h2>
+
+          <ol>
+            <li>
+              Imprima em impressora jato de tinta (ink jet) ou laser, em qualidade normal
+              ou alta. N&atilde;o use modo econ&ocirc;mico.
+              <p class="notice">
+                Por favor, configure margens esquerda e direita para 17mm.
+              </p>
+            </li>
+            <li>
+              Utilize folha A4 (210 x 297 mm) ou Carta (216 x 279 mm) e margens m&iacute;nimas
+              &agrave; esquerda e &agrave; direita do formul&aacute;rio.
+            </li>
+            <li>
+              Corte na linha indicada. N&atilde;o rasure, risque, fure ou dobre a regi&atilde;o
+              onde se encontra o c&oacute;digo de barras
+            </li>
+          </ol>
+        </div>
+      </div>
+
+      <div id="boleto">
+        <div class="cut">
+          <p>Corte na linha pontilhada</p>
+        </div>
+
+        <table class="header" border=0 cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr>
+              <td width=150>
+                <img src="data:image/png;base64,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" />
+              </td>
+              <td width=50>
+                <div class="field_cod_banco">
+                  756-0
+                </div>
+              </td>
+
+              <td class="linha_digitavel">
+                75691.30870 02005.623505 00000.289017 1 65760000000100
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <table class="line" cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr class="titulos">
+              <td class="cedente">Cedente</td>
+              <td class="ag_cod_cedente">Ag&ecirc;ncia / C&oacute;digo do Cedente</td>
+              <td class="especie">Esp&eacute;cie</td>
+              <td class="qtd">Quantidade</td>
+              <td class="nosso_numero">Nosso n&uacute;mero</td>
+            </tr>
+
+            <tr class="campos">
+              <td class="cedente">Empre Joaquina das Coves&nbsp;</td>
+              <td class="ag_cod_cedente">3087 / 0056235 &nbsp;</td>
+              <td class="especie">R$&nbsp;</td>
+              <td class="qtd">1&nbsp;</td>
+              <td class="nosso_numero">00000028&nbsp;</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <table class="line" cellspacing="0" cellPadding="0">
+          <tbody>
+            <tr class="titulos">
+              <td class="num_doc">N&uacute;mero do documento</td>
+              <td class="contrato">Contrato</td>
+              <td class="cpf_cei_cnpj">CPF/CEI/CNPJ</td>
+              <td class="vencmento">Vencimento</td>
+              <td class="valor_doc">Valor documento</td>
+            </tr>
+
+            <tr class="campos">
+              <td class="num_doc">12</td>
+              <td class="contrato"></td>
+              <td class="cpf_cei_cnpj">85.835.216/0001-20</td>
+              <td class="vencimento">09/10/2015</td>
+              <td class="valor_doc">1,00</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <table class="line" cellspacing="0" cellPadding="0">
+          <tbody>
+            <tr class="titulos">
+              <td class="desconto">(-) Desconto / Abatimento</td>
+              <td class="outras_deducoes">(-) Outras dedu&ccedil;&otilde;es</td>
+              <td class="mora_multa">(+) Mora / Multa</td>
+              <td class="outros_acrescimos">(+) Outros acr&eacute;scimos</td>
+              <td class="valor_cobrado">(=) Valor cobrado</td>
+            </tr>
+
+            <tr class="campos">
+              <td class="desconto">&nbsp;</td>
+              <td class="outras_deducoes">&nbsp;</td>
+              <td class="mora_multa">&nbsp;</td>
+              <td class="outros_acrescimos">&nbsp;</td>
+              <td class="valor_cobrado">&nbsp;</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <table class="line" cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr class="titulos">
+              <td class="sacado">Sacado</td>
+            </tr>
+
+            <tr class="campos">
+              <td class="sacado">Luiz Amorim - 012.345.678-90</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="footer">
+          <p>Autentica&ccedil;&atilde;o mec&acirc;nica</p>
+        </div>
+
+        <div class="cut">
+          <p>Corte na linha pontilhada</p>
+        </div>
+
+        <table class="header" border=0 cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr>
+              <td width="150"><img src="data:image/png;base64,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" /></td>
+              <td width="50"><div class="field_cod_banco">756-0</div></td>
+              <td class="linha_digitavel">75691.30870 02005.623505 00000.289017 1 65760000000100</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <table class="line" cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr class="titulos">
+              <td class="local_pagto">Local de pagamento</td>
+              <td class="vencimento2">Vencimento</td>
+            </tr>
+
+            <tr class="campos">
+              <td class="local_pagto">QUALQUER BANCO AT&Eacute; O VENCIMENTO</td>
+              <td class="vencimento2">09/10/2015</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <table class="line" cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr class="titulos">
+              <td class="cedente2">Cedente</td>
+              <td class="ag_cod_cedente2">Ag&ecirc;ncia/C&oacute;digo cedente</td>
+            </tr>
+
+            <tr class="campos">
+              <td class="cedente2">Empre Joaquina das Coves</td>
+              <td class="ag_cod_cedente2">3087 / 0056235</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <table class="line" cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr class="titulos">
+              <td class="data_doc">Data do documento</td>
+              <td class="num_doc2">No. documento</td>
+              <td class="especie_doc">Esp&eacute;cie doc.</td>
+              <td class="aceite">Aceite</td>
+              <td class="data_process">Data process.</td>
+              <td class="nosso_numero2">Nosso n&uacute;mero</td>
+            </tr>
+
+            <tr class="campos">
+              <td class="data_doc">09/10/2015</td>
+              <td class="num_doc2">12</td>
+              <td class="especie_doc">DM</td>
+              <td class="aceite">N</td>
+              <td class="data_process">09/10/2015</td>
+              <td class="nosso_numero2">00000028</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <table class="line" cellspacing="0" cellPadding="0">
+          <tbody>
+            <tr class="titulos">
+              <td class="reservado">Uso do banco</td>
+              <td class="carteira">Carteira</td>
+              <td class="especie2">Esp&eacute;cie</td>
+              <td class="qtd2">Quantidade</td>
+              <td class="xvalor">x Valor</td>
+              <td class="valor_doc2">(=) Valor documento</td>
+            </tr>
+
+            <tr class="campos">
+              <td class="reservado">&nbsp;</td>
+              <td class="carteira">1 &nbsp;</td>
+              <td class="especie2">R$</td>
+              <td class="qtd2">1</td>
+              <td class="xvalor">1</td>
+              <td class="valor_doc2">1,00</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <table class="line" cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr>
+              <td class="last_line" rowspan="6">
+                <table class="line" cellspacing="0" cellpadding="0">
+                  <tbody>
+                    <tr class="titulos">
+                      <td class="instrucoes">Instru&ccedil;&otilde;es (Texto de responsabilidade do cedente)</td>
+                    </tr>
+
+                    <tr class="campos">
+                      <td class="instrucoes" rowspan="5"><p>Pagamento de dívida na Loja BLÁ BLÁ BLÁ</p>
+                        <p>Mensalidade referente a BLÁ BLÁ BLÁ</p>
+                        <p>BoletoPhp - http://www.boletophp.com.br</p>
+                        <p>1º - Sr. Caixa, não receber após o vencimento.</p>
+                        <p>2º - Este boleto é inválido após vencimento.</p>
+                        <p>3º - Em caso de dúvidas entre em contato conosco: xxxxx@xxxxx.com</p>
+                        <p>&nbsp; Emitido por um sistema da informação.</p>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <table class="line" cellspacing="0" cellpadding="0">
+                  <tbody>
+                    <tr class="titulos">
+                      <td class="desconto2">(-) Desconto / Abatimento</td>
+                    </tr>
+                    <tr class="campos">
+                      <td class="desconto2">&nbsp;</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <table class="line" cellspacing="0" cellpadding="0">
+                  <tbody>
+                    <tr class="titulos">
+                      <td class="outras_deducoes2">(-) Outras dedu&ccedil;&otilde;es</td>
+                    </tr>
+                    <tr class="campos">
+                      <td class="outras_deducoes2">&nbsp;</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <table class="line" cellspacing="0" cellpadding="0">
+                  <tbody>
+                    <tr class="titulos">
+                      <td class="mora_multa2">(+) Mora / Multa</td>
+                    </tr>
+                    <tr class="campos">
+                      <td class="mora_multa2">&nbsp;</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                <table class="line" cellspacing="0" cellpadding="0">
+                  <tbody>
+                    <tr class="titulos">
+                      <td class="outros_acrescimos2">(+) Outros Acr&eacute;scimos</td>
+                    </tr>
+
+                    <tr class="campos">
+                      <td class="outros_acrescimos2">
+                        &nbsp;
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+
+            <tr>
+              <td class="last_line">
+                <table class="line" cellspacing="0" cellpadding="0">
+                  <tbody>
+                    <tr class="titulos">
+                      <td class="valor_cobrado2">(=) Valor cobrado</td>
+                    </tr>
+
+                    <tr class="campos">
+                      <td class="valor_cobrado2">
+                        &nbsp;
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <table class="line" cellspacing="0" cellPadding="0">
+          <tbody>
+            <tr class="titulos">
+              <td class="sacado2">Sacado</td>
+            </tr>
+
+            <tr class="campos">
+              <td class="sacado2">
+                <p>Luiz Amorim - 012.345.678-90</p>
+                <p>Rua José das Coves, 3435 - Centro</p>
+                <p>Campão / MS - CEP: 79.021-000</p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <table class="line" cellspacing="0" cellpadding="0">
+          <tbody>
+            <tr class="titulos">
+              <td class="sacador_avalista" colspan="2">Sacador/Avalista</td>
+            </tr>
+            <tr class="campos">
+              <td class="sacador_avalista">&nbsp;</td>
+              <td class="cod_baixa">C&oacute;d. baixa</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="footer">
+          <p>Autentica&ccedil;&atilde;o mec&acirc;nica</p>
+        </div>
+
+        <div class="barcode">
+          <p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEUAAACnej3aAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEX///+nxBvIAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEUAAACnej3aAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEX///+nxBvIAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEUAAACnej3aAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEX///+nxBvIAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="3" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEUAAACnej3aAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEX///+nxBvIAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEUAAACnej3aAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEX///+nxBvIAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="3" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEUAAACnej3aAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="3" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEX///+nxBvIAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEUAAACnej3aAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="3" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEX///+nxBvIAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEUAAACnej3aAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEX///+nxBvIAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEUAAACnej3aAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="3" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEX///+nxBvIAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="3" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEUAAACnej3aAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="3" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEX///+nxBvIAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEUAAACnej3aAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEX///+nxBvIAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="3" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEUAAACnej3aAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEX///+nxBvIAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEUAAACnej3aAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="3" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEX///+nxBvIAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEUAAACnej3aAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEX///+nxBvIAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="3" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEUAAACnej3aAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEX///+nxBvIAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="3" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEUAAACnej3aAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEX///+nxBvIAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEUAAACnej3aAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="3" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEX///+nxBvIAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEUAAACnej3aAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="3" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEX///+nxBvIAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEUAAACnej3aAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEX///+nxBvIAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEUAAACnej3aAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="3" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEX///+nxBvIAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEUAAACnej3aAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEX///+nxBvIAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="3" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEUAAACnej3aAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEX///+nxBvIAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="3" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEUAAACnej3aAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEX///+nxBvIAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEUAAACnej3aAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="3" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEX///+nxBvIAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEUAAACnej3aAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="3" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEX///+nxBvIAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="3" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEUAAACnej3aAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEX///+nxBvIAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="3" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEUAAACnej3aAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEX///+nxBvIAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEUAAACnej3aAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEX///+nxBvIAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEUAAACnej3aAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEX///+nxBvIAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEUAAACnej3aAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="3" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEX///+nxBvIAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="3" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEUAAACnej3aAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="3" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEX///+nxBvIAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="3" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEUAAACnej3aAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEX///+nxBvIAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEUAAACnej3aAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEX///+nxBvIAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEUAAACnej3aAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEX///+nxBvIAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEUAAACnej3aAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="3" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEX///+nxBvIAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="3" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEUAAACnej3aAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="3" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEX///+nxBvIAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="3" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEUAAACnej3aAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEX///+nxBvIAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEUAAACnej3aAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEX///+nxBvIAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEUAAACnej3aAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEX///+nxBvIAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEUAAACnej3aAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="3" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEX///+nxBvIAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="3" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEUAAACnej3aAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="3" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEX///+nxBvIAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="3" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEUAAACnej3aAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEX///+nxBvIAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEUAAACnej3aAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="3" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEX///+nxBvIAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEUAAACnej3aAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEX///+nxBvIAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEUAAACnej3aAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEX///+nxBvIAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="3" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEUAAACnej3aAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEX///+nxBvIAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="3" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEUAAACnej3aAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="3" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEX///+nxBvIAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEUAAACnej3aAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEX///+nxBvIAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="3" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEUAAACnej3aAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEX///+nxBvIAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEUAAACnej3aAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="3" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEX///+nxBvIAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEUAAACnej3aAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="3" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEX///+nxBvIAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEUAAACnej3aAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEX///+nxBvIAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="3" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEUAAACnej3aAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="3" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEX///+nxBvIAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEUAAACnej3aAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="3" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEX///+nxBvIAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEUAAACnej3aAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEX///+nxBvIAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="3" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEUAAACnej3aAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEX///+nxBvIAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="3" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEUAAACnej3aAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEX///+nxBvIAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEUAAACnej3aAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="3" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEX///+nxBvIAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEUAAACnej3aAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEX///+nxBvIAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEUAAACnej3aAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEX///+nxBvIAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEUAAACnej3aAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="3" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEX///+nxBvIAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="3" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEUAAACnej3aAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEX///+nxBvIAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="3" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEUAAACnej3aAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEX///+nxBvIAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEUAAACnej3aAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEX///+nxBvIAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="3" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEUAAACnej3aAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="3" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEX///+nxBvIAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEUAAACnej3aAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="3" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEX///+nxBvIAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEUAAACnej3aAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEX///+nxBvIAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="3" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEUAAACnej3aAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEX///+nxBvIAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEUAAACnej3aAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEX///+nxBvIAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEUAAACnej3aAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="3" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEX///+nxBvIAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="3" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEUAAACnej3aAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="3" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEX///+nxBvIAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="3" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEUAAACnej3aAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEX///+nxBvIAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEUAAACnej3aAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="3" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEX///+nxBvIAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEUAAACnej3aAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEX///+nxBvIAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="3" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEUAAACnej3aAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="3" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEX///+nxBvIAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="3" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEUAAACnej3aAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEX///+nxBvIAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEUAAACnej3aAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEX///+nxBvIAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEUAAACnej3aAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEX///+nxBvIAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="3" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEUAAACnej3aAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="3" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEX///+nxBvIAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="3" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEUAAACnej3aAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEX///+nxBvIAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEUAAACnej3aAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEX///+nxBvIAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEUAAACnej3aAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="3" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEX///+nxBvIAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEUAAACnej3aAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="3" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEX///+nxBvIAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEUAAACnej3aAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEX///+nxBvIAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEUAAACnej3aAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="3" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEX///+nxBvIAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="3" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEUAAACnej3aAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEX///+nxBvIAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="3" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEUAAACnej3aAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEX///+nxBvIAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEUAAACnej3aAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEX///+nxBvIAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEUAAACnej3aAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEX///+nxBvIAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEUAAACnej3aAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="3" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEX///+nxBvIAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="3" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEUAAACnej3aAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="3" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEX///+nxBvIAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="3" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEUAAACnej3aAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEX///+nxBvIAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEUAAACnej3aAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEX///+nxBvIAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEUAAACnej3aAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEX///+nxBvIAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEUAAACnej3aAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="3" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEX///+nxBvIAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="3" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEUAAACnej3aAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="3" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEX///+nxBvIAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="3" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEUAAACnej3aAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEX///+nxBvIAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEUAAACnej3aAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEX///+nxBvIAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEUAAACnej3aAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEX///+nxBvIAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="3" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEUAAACnej3aAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="3" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEX///+nxBvIAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEUAAACnej3aAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="3" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEX///+nxBvIAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEUAAACnej3aAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEX///+nxBvIAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="3" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEUAAACnej3aAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="3" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEX///+nxBvIAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEUAAACnej3aAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEX///+nxBvIAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="3" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEUAAACnej3aAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEX///+nxBvIAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEUAAACnej3aAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="3" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEX///+nxBvIAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="3" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEUAAACnej3aAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEX///+nxBvIAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEUAAACnej3aAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEX///+nxBvIAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="3" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEUAAACnej3aAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEX///+nxBvIAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEUAAACnej3aAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="3" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEX///+nxBvIAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEUAAACnej3aAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="3" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEX///+nxBvIAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEUAAACnej3aAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEX///+nxBvIAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="3" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEUAAACnej3aAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="3" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEX///+nxBvIAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAABQAQMAAAAa6XZvAAAAA1BMVEUAAACnej3aAAAADElEQVR42mNgGFkAAADwAAE4aVpRAAAAAElFTkSuQmCC" width="1" height="50" border="0" /></p>
+        </div>
+
+        <div class="cut">
+          <p>Corte na linha pontilhada</p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

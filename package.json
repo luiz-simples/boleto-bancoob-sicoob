@@ -1,0 +1,31 @@
+{
+  "name": "boleto-bancoob-sicoob",
+  "version": "1.0.0",
+  "description": "Boleto Bancoob/Sicoob em NodeJS",
+  "author": "Luiz Amorim <luiz.simples@gmail.com>",
+  "license": "UNLICENSED",
+  "homepage": "https://github.com/luiz-simples/boleto-bancoob-sicoob#readme",
+
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luiz-simples/boleto-bancoob-sicoob.git"
+  },
+
+  "keywords": [
+    "boletos",
+    "bancoob",
+    "sicoob"
+  ],
+
+  "bugs": {
+    "url": "https://github.com/luiz-simples/boleto-bancoob-sicoob/issues"
+  },
+
+  "dependencies": {
+    "q": "^1.4.1",
+    "swig": "^1.4.2",
+    "html-pdf": "^1.4.0",
+    "accounting": "^0.4.1",
+    "moment-timezone": "^0.4.1"
+  }
+}
